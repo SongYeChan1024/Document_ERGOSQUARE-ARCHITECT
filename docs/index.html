@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ERGOSQUARE: ARCHITECT — 공간을 설계하고 약점을 함께 지키는 3~4인 협동 PvE 게임 기획 문서">
+  <meta name="author" content="송예찬">
+  <meta name="theme-color" content="#071014">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ERGOSQUARE: ARCHITECT">
+  <meta property="og:description" content="공간에 삼켜진 자, 공간의 설계자로 각성하다.">
+  <title>ERGOSQUARE: ARCHITECT — Game Design Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+
+  <header class="mobile-header">
+    <a class="mobile-brand" href="#top" aria-label="맨 위로">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>ERGOSQUARE</span>
+    </a>
+    <button class="menu-button" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="side-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="nav-scrim" data-nav-close></div>
+
+  <aside class="side-nav" id="side-nav">
+    <div class="nav-brand">
+      <a href="#top">
+        <span class="brand-kicker">PROJECT / EARTH-164991</span>
+        <strong>ERGO<span>SQUARE</span></strong>
+        <small>ARCHITECT</small>
+      </a>
+    </div>
+
+    <nav aria-label="문서 목차">
+      <div class="nav-group">
+        <span>Introduction</span>
+        <a href="#overview">프로젝트 개요</a>
+        <a href="#identity">이름과 정체성</a>
+      </div>
+      <div class="nav-group">
+        <span>World</span>
+        <a href="#scenario">간략 시나리오</a>
+        <a href="#terms">핵심 용어</a>
+      </div>
+      <div class="nav-group">
+        <span>Game Design</span>
+        <a href="#core">핵심 콘셉트</a>
+        <a href="#loop">플레이 루프</a>
+        <a href="#blueprint">에르고스퀘어</a>
+        <a href="#frames">전술 프레임</a>
+        <a href="#co-op">협동 전투</a>
+      </div>
+      <div class="nav-group">
+        <span>Production</span>
+        <a href="#mvp">MVP 범위</a>
+        <a href="#tech">기술 계획</a>
+        <a href="#roadmap">로드맵</a>
+        <a href="#sources">문서 기준</a>
+      </div>
+    </nav>
+
+    <div class="nav-footer">
+      <span>DOCUMENT STATUS</span>
+      <strong><i></i> PRE-PRODUCTION</strong>
+      <a href="https://github.com/SongYeChan1024/Document_ERGOSQUARE-ARCHITECT" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+      <div class="hero-square" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <div class="square-core"></div>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> GAME DESIGN DOCUMENT / CONCEPT v0.5</p>
+        <h1>
+          <span>ERGO</span><span class="title-outline">SQUARE</span>
+          <small>ARCHITECT</small>
+        </h1>
+        <p class="hero-copy">공간에 삼켜진 자,<br>공간의 설계자로 각성하다.</p>
+        <p class="hero-summary">
+          인벤토리를 전투 청사진으로 전개하고,<br>
+          드러난 힘의 근원을 함께 지키는 3~4인 협동 PvE.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#core">핵심 기획 보기</a>
+          <a class="button ghost" href="https://github.com/SongYeChan1024/Document_ERGOSQUARE-ARCHITECT" target="_blank" rel="noopener noreferrer">Repository ↗</a>
+        </div>
+      </div>
+      <div class="hero-index" aria-hidden="true">164991 / ES-A</div>
+      <a class="scroll-cue" href="#overview"><span></span>SCROLL TO EXPLORE</a>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="section-heading reveal">
+        <p class="section-number">01 / Overview</p>
+        <h2>프로젝트 개요</h2>
+        <p>전략 배치의 깊이와 직접 전투의 긴장감을 하나의 약점 공유 구조로 연결합니다.</p>
+      </div>
+
+      <div class="overview-grid">
+        <article class="pitch-card reveal">
+          <span class="card-label">ONE-LINE PITCH</span>
+          <p>근미래 평행 지구에서 게이트 생존자들이 자신의 에르고스퀘어를 전장에 전개하고, 힘의 근원인 코어를 서로 지키며 싸우는 협동 차원 방어 게임.</p>
+        </article>
+        <dl class="spec-card reveal">
+          <div><dt>형태</dt><dd>개인 기획 프로젝트</dd></div>
+          <div><dt>현재 단계</dt><dd>프리프로덕션</dd></div>
+          <div><dt>장르</dt><dd>협동 PvE · 전략 배치 · 액션</dd></div>
+          <div><dt>플레이</dt><dd>3~4인 온라인 협동</dd></div>
+          <div><dt>플랫폼</dt><dd>PC / Windows 우선</dd></div>
+          <div><dt>엔진</dt><dd>Unity · URP</dd></div>
+        </dl>
+      </div>
+
+      <div class="thesis reveal">
+        <span>CORE THESIS</span>
+        <blockquote>“힘을 얻기 위해 약점을 드러내라.<br>그리고 팀과 함께 그 약점을 지켜라.”</blockquote>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="identity">
+      <div class="section-heading reveal">
+        <p class="section-number">02 / Identity</p>
+        <h2>왜 <em>ERGOSQUARE</em>인가?</h2>
+      </div>
+
+      <div class="contrast">
+        <article class="contrast-card sphere reveal">
+          <span class="contrast-shape" aria-hidden="true"></span>
+          <p class="card-label">UNCONTROLLED SPACE</p>
+          <h3>ERGOSPHERE</h3>
+          <p>게이트와 함께 형성되는 통제 불가능한 왜곡 영역. 인간이 공간의 흐름에 끌려갑니다.</p>
+          <strong>SPACE MOVES YOU</strong>
+        </article>
+        <div class="contrast-arrow reveal" aria-hidden="true">→</div>
+        <article class="contrast-card square reveal">
+          <span class="contrast-shape" aria-hidden="true"></span>
+          <p class="card-label">DESIGNED SPACE</p>
+          <h3>ERGOSQUARE</h3>
+          <p>설계자가 좌표와 규칙을 부여하는 개인 아공간. 인간이 공간을 직접 움직입니다.</p>
+          <strong>YOU MOVE SPACE</strong>
+        </article>
+      </div>
+
+      <div class="identity-note reveal">
+        <span>ARCHITECT</span>
+        <p>인벤토리 게이트를 확장해 에르고스퀘어를 구축하고, 그 내부 구조를 전투 청사진으로 운용할 수 있는 특수 각성자의 코드네임입니다.</p>
+      </div>
+    </section>
+
+    <section class="section" id="scenario">
+      <div class="section-heading reveal">
+        <p class="section-number">03 / Scenario</p>
+        <h2>간략 시나리오</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <span>01</span>
+          <div><small>RUPTURE</small><h3>게이트 발생</h3><p>지구-164991 곳곳에 차원 균열이 열리고 주변의 사람과 사물이 내부로 빨려 들어갑니다.</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <span>02</span>
+          <div><small>ERGO SPHERE</small><h3>공간에 휘말리다</h3><p>생존자들은 통제할 수 없는 왜곡 공간을 통과하며 기존에 없던 격자와 좌표를 인식합니다.</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <span>03</span>
+          <div><small>AWAKENING</small><h3>각성자의 귀환</h3><p>일부 생존자는 개인 아공간에 접근하는 인벤토리 게이트를 얻은 채 현실로 돌아옵니다.</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <span>04</span>
+          <div><small>ARCHITECT</small><h3>설계자의 탄생</h3><p>아공간을 격자로 고정하고 전장에 전개할 수 있는 이들은 ‘설계자’로 분류됩니다.</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <span>05</span>
+          <div><small>COUNTEROFFENSIVE</small><h3>균열 봉쇄 작전</h3><p>설계자들은 자신의 힘의 근원을 전장에 드러내고, 서로의 코어를 지키며 침식체에 맞섭니다.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-grid" id="terms">
+      <div class="section-heading reveal">
+        <p class="section-number">04 / Terminology</p>
+        <h2>하나의 규칙으로 연결되는 용어</h2>
+      </div>
+
+      <div class="term-grid">
+        <article class="term-card reveal"><span>01</span><h3>게이트</h3><p>현실과 다른 차원을 잇는 균열이자 사건의 시작점.</p></article>
+        <article class="term-card reveal"><span>02</span><h3>에르고스피어</h3><p>공간이 인간을 움직이는 통제 불가능한 왜곡 영역.</p></article>
+        <article class="term-card reveal"><span>03</span><h3>인벤토리 게이트</h3><p>개인 아공간과 현실을 연결하는 각성자의 인터페이스.</p></article>
+        <article class="term-card reveal"><span>04</span><h3>에르고스퀘어</h3><p>설계자가 격자 좌표로 구축하고 전개하는 개인 아공간.</p></article>
+        <article class="term-card reveal"><span>05</span><h3>설계자</h3><p>에르고스퀘어의 구조와 규칙을 전투에 사용하는 특수 각성자.</p></article>
+        <article class="term-card reveal"><span>06</span><h3>침식체</h3><p>다른 차원의 법칙으로 현실을 침식하는 적대 생명체.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="core">
+      <div class="section-heading reveal">
+        <p class="section-number">05 / Core Concept</p>
+        <h2>인벤토리는 가방이 아니다</h2>
+        <p>보이지 않던 UI를 전장 위의 실체이자, 반드시 지켜야 하는 약점으로 바꿉니다.</p>
+      </div>
+
+      <div class="concept-layout">
+        <div class="blueprint-demo reveal" aria-label="청사진 격자 예시">
+          <div class="demo-toolbar"><span>BLUEPRINT / GUNNER-03</span><strong>3 × 3</strong></div>
+          <div class="demo-grid">
+            <button class="cell module attack" data-tip="공격 모듈" aria-label="공격 모듈"><i>A</i></button>
+            <button class="cell module utility" data-tip="증폭 모듈" aria-label="증폭 모듈"><i>+</i></button>
+            <button class="cell empty" data-tip="빈 슬롯" aria-label="빈 슬롯"></button>
+            <button class="cell module defense" data-tip="방어 모듈" aria-label="방어 모듈"><i>D</i></button>
+            <button class="cell module core" data-tip="자원 코어" aria-label="자원 코어"><i>C</i></button>
+            <button class="cell module attack" data-tip="공격 모듈" aria-label="공격 모듈"><i>A</i></button>
+            <button class="cell empty" data-tip="빈 슬롯" aria-label="빈 슬롯"></button>
+            <button class="cell module repair" data-tip="수리 모듈" aria-label="수리 모듈"><i>R</i></button>
+            <button class="cell module defense" data-tip="방어 모듈" aria-label="방어 모듈"><i>D</i></button>
+          </div>
+          <p class="demo-tip">모듈을 가리켜 역할을 확인하세요.</p>
+        </div>
+
+        <div class="concept-points">
+          <article class="feature reveal"><span>01</span><div><h3>설계한다</h3><p>전투 전에 코어와 모듈의 크기, 위치, 인접 효과를 고려해 빌드를 구성합니다.</p></div></article>
+          <article class="feature reveal"><span>02</span><div><h3>전개한다</h3><p>인벤토리 게이트를 열어 설계한 격자를 실제 전장에 고정합니다.</p></div></article>
+          <article class="feature reveal"><span>03</span><div><h3>출력한다</h3><p>설치된 모듈이 자원과 무기, 스킬 사용 조건을 제공합니다.</p></div></article>
+          <article class="feature reveal"><span>04</span><div><h3>지켜낸다</h3><p>침식체가 노리는 코어를 보호하고 팀원의 약점을 함께 보완합니다.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="loop">
+      <div class="section-heading reveal">
+        <p class="section-number">06 / Core Loop</p>
+        <h2>설계하고, 드러내고, 다시 고친다</h2>
+      </div>
+
+      <div class="loop-rail reveal">
+        <article><span>01</span><i>PREPARE</i><h3>프레임 선택</h3><p>팀 조합과 작전 목표를 확인합니다.</p></article>
+        <article><span>02</span><i>DESIGN</i><h3>청사진 편성</h3><p>코어와 모듈을 격자에 배치합니다.</p></article>
+        <article><span>03</span><i>DEPLOY</i><h3>공간 전개</h3><p>전투 위치에 에르고스퀘어를 고정합니다.</p></article>
+        <article><span>04</span><i>DEFEND</i><h3>협동 전투</h3><p>자원을 출력하며 서로의 코어를 지킵니다.</p></article>
+        <article><span>05</span><i>REVISE</i><h3>결과 분석</h3><p>실패 원인을 반영해 설계를 수정합니다.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="blueprint">
+      <div class="section-heading reveal">
+        <p class="section-number">07 / ErgoSquare System</p>
+        <h2>배치가 곧 전투 능력이다</h2>
+      </div>
+
+      <div class="rule-grid">
+        <article class="rule-card reveal"><span class="rule-icon">▦</span><h3>1m 격자</h3><p>한 칸을 1m × 1m 좌표로 계산해 전개 거리와 모듈 크기를 명확히 합니다.</p></article>
+        <article class="rule-card reveal"><span class="rule-icon">⌖</span><h3>위치 고정</h3><p>전개된 격자는 플레이어를 따라오지 않습니다. 잘못된 위치 선정은 전투 손실로 이어집니다.</p></article>
+        <article class="rule-card reveal"><span class="rule-icon">◷</span><h3>설치 시간</h3><p>전개 직후 모듈은 홀로그램 상태이며, 설치가 끝나야 기능을 사용할 수 있습니다.</p></article>
+        <article class="rule-card reveal"><span class="rule-icon">↻</span><h3>재전개 제약</h3><p>회수와 재전개에는 시간이 필요해 위험 없이 무한 재배치할 수 없습니다.</p></article>
+      </div>
+
+      <div class="risk-table reveal">
+        <div class="risk-copy">
+          <span class="card-label">RISK / REWARD</span>
+          <h3>강해질수록<br>약점도 커진다</h3>
+          <p>더 많은 모듈은 더 높은 전투력을 제공하지만, 설치 시간과 방어해야 할 면적도 함께 늘립니다.</p>
+        </div>
+        <div class="risk-bars">
+          <div><span>출력 능력</span><i style="--value: 88%"></i><strong>HIGH</strong></div>
+          <div><span>노출 면적</span><i style="--value: 76%"></i><strong>HIGH</strong></div>
+          <div><span>설치 부담</span><i style="--value: 64%"></i><strong>MID</strong></div>
+          <div><span>기동성</span><i style="--value: 32%"></i><strong>LOW</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-grid" id="frames">
+      <div class="section-heading reveal">
+        <p class="section-number">08 / Tactical Frames</p>
+        <h2>같은 공간, 다른 설계 방식</h2>
+        <p>전술 프레임은 스킬만 바꾸는 직업이 아니라 에르고스퀘어의 형태와 위험을 바꿉니다.</p>
+      </div>
+
+      <div class="frame-tabs reveal" role="tablist" aria-label="전술 프레임">
+        <button role="tab" aria-selected="true" data-frame="vanguard">VANGUARD</button>
+        <button role="tab" aria-selected="false" data-frame="gunner">GUNNER</button>
+        <button role="tab" aria-selected="false" data-frame="reactor">REACTOR</button>
+        <button role="tab" aria-selected="false" data-frame="linker">LINKER</button>
+      </div>
+
+      <div class="frame-panel reveal" data-frame-panel>
+        <div class="frame-visual" aria-hidden="true">
+          <div class="frame-grid vanguard" data-frame-grid></div>
+          <span data-frame-size>3 × 5 / FRONT</span>
+        </div>
+        <div class="frame-copy">
+          <p class="card-label" data-frame-resource>RESOURCE / IMPULSE</p>
+          <h3 data-frame-title>뱅가드</h3>
+          <strong data-frame-role>전방 방어 · 접근 차단</strong>
+          <p data-frame-description>플레이어 전방에 넓은 청사진을 펼쳐 팀의 방어선을 만듭니다. 강한 구조물을 설치하지만 전개 방향과 느린 설치 속도가 약점입니다.</p>
+          <ul data-frame-traits>
+            <li>전방 3×5 격자</li>
+            <li>높은 구조물 내구도</li>
+            <li>임펄스 기반 근접 충격 출력</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="co-op">
+      <div class="section-heading reveal">
+        <p class="section-number">09 / Cooperative Combat</p>
+        <h2>내 전투보다 우리의 약점</h2>
+      </div>
+
+      <div class="coop-layout">
+        <div class="coop-map reveal" aria-label="협동 방어 관계 개념도">
+          <div class="player-node node-a"><span>V</span><small>FRONT</small></div>
+          <div class="player-node node-b"><span>G</span><small>FIRE</small></div>
+          <div class="player-node node-c"><span>R</span><small>CONTROL</small></div>
+          <div class="player-node node-d"><span>L</span><small>LINK</small></div>
+          <div class="team-core"><i></i><strong>SHARED<br>DEFENSE</strong></div>
+          <svg viewBox="0 0 600 420" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M115 105 C210 60 250 150 300 210"></path>
+            <path d="M485 105 C390 60 350 150 300 210"></path>
+            <path d="M115 330 C210 365 250 270 300 210"></path>
+            <path d="M485 330 C390 365 350 270 300 210"></path>
+          </svg>
+        </div>
+        <div class="coop-copy">
+          <article class="reveal"><span>01</span><h3>역할보다 관계</h3><p>프레임은 혼자 완결되지 않습니다. 각자의 전개 방식이 다른 플레이어의 사각을 채웁니다.</p></article>
+          <article class="reveal"><span>02</span><h3>공유되는 위험</h3><p>적이 팀원의 핵심 모듈을 공격할 때, 개인 화력과 팀 생존 사이에서 우선순위를 결정합니다.</p></article>
+          <article class="reveal"><span>03</span><h3>실패가 다음 설계가 된다</h3><p>먼저 파괴된 모듈과 자원 공백을 분석해 다음 작전의 청사진을 함께 수정합니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="mvp">
+      <div class="section-heading reveal">
+        <p class="section-number">10 / MVP</p>
+        <h2>먼저 검증할 단 하나의 질문</h2>
+      </div>
+
+      <div class="mvp-question reveal">
+        <span>VALIDATION TARGET</span>
+        <p>“전투력을 얻기 위해 파괴 가능한 청사진을 노출하고,<br>팀과 함께 그 약점을 보호하는 구조가 실제로 재미있는가?”</p>
+      </div>
+
+      <div class="scope-grid">
+        <article class="scope-card in reveal">
+          <span>IN SCOPE</span>
+          <ul>
+            <li>3~4인 룸과 이동 동기화</li>
+            <li>거너·뱅가드 우선 구현</li>
+            <li>격자 편성과 전장 전개</li>
+            <li>자원 코어와 모듈 파괴</li>
+            <li>코어를 노리는 침식체 AI</li>
+            <li>직접 공격과 결과 분석</li>
+          </ul>
+        </article>
+        <article class="scope-card later reveal">
+          <span>EXPANSION</span>
+          <ul>
+            <li>링커 다중 보조 노드</li>
+            <li>청사진 성장 고도화</li>
+            <li>보스 침식체와 난이도</li>
+            <li>부산물 거래소</li>
+            <li>청사진 라이선스 시장</li>
+            <li>생성 AI 전술 피드백</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="tech">
+      <div class="section-heading reveal">
+        <p class="section-number">11 / Technical Plan</p>
+        <h2>검증 가능한 구조부터</h2>
+      </div>
+
+      <div class="tech-grid">
+        <article class="tech-card reveal"><small>ENGINE</small><strong>Unity</strong><span>URP / PC Prototype</span></article>
+        <article class="tech-card reveal"><small>NETWORK</small><strong>Photon PUN2</strong><span>Room · State Sync</span></article>
+        <article class="tech-card reveal"><small>DATA</small><strong>ScriptableObject</strong><span>Module · Frame · Balance</span></article>
+        <article class="tech-card reveal"><small>INTERFACE</small><strong>Unity UI</strong><span>Grid · Setup · Result</span></article>
+        <article class="tech-card reveal"><small>OPTIMIZATION</small><strong>Object Pooling</strong><span>Enemy · Projectile · VFX</span></article>
+        <article class="tech-card reveal"><small>AI GUIDE</small><strong>Hybrid Response</strong><span>Rule-based + Gen AI</span></article>
+      </div>
+
+      <div class="architecture reveal">
+        <div><span>INPUT</span><strong>Blueprint Grid</strong><small>배치 데이터</small></div>
+        <i>→</i>
+        <div><span>RUNTIME</span><strong>Deploy Manager</strong><small>전개·설치·회수</small></div>
+        <i>→</i>
+        <div><span>COMBAT</span><strong>Resource &amp; Modules</strong><small>출력·피격·파괴</small></div>
+        <i>→</i>
+        <div><span>RESULT</span><strong>Battle Analysis</strong><small>기록·피드백</small></div>
+      </div>
+    </section>
+
+    <section class="section section-grid" id="roadmap">
+      <div class="section-heading reveal">
+        <p class="section-number">12 / Roadmap</p>
+        <h2>7주 프로토타입 계획</h2>
+      </div>
+
+      <div class="roadmap">
+        <article class="reveal"><span>W01</span><h3>Foundation</h3><p>핵심 규칙 확정<br>Unity·Photon 세팅</p></article>
+        <article class="reveal"><span>W02</span><h3>Network</h3><p>룸 접속<br>플레이어 동기화</p></article>
+        <article class="reveal"><span>W03</span><h3>Blueprint</h3><p>격자 편성<br>모듈 데이터</p></article>
+        <article class="reveal"><span>W04</span><h3>Deploy</h3><p>공간 전개<br>자원 코어</p></article>
+        <article class="reveal"><span>W05</span><h3>Combat</h3><p>직접 전투<br>침식체 AI</p></article>
+        <article class="reveal"><span>W06</span><h3>Analysis</h3><p>결과 화면<br>AI 교관</p></article>
+        <article class="reveal"><span>W07</span><h3>Vertical Slice</h3><p>통합 QA<br>시연 빌드</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-heading reveal">
+        <p class="section-number">13 / Document Basis</p>
+        <h2>문서 기준과 변경 이력</h2>
+      </div>
+
+      <div class="source-layout">
+        <article class="source-card reveal">
+          <span>PRIMARY SOURCE</span>
+          <h3>지구-164991: 청사진 각성자</h3>
+          <p>노션 메인 기획서 v0.4의 핵심 콘셉트, 전술 프레임, MVP 및 기술 계획을 기준으로 정리했습니다.</p>
+          <a href="https://app.notion.com/p/39c36532580e8152bde6e55017d82c40" target="_blank" rel="noopener noreferrer">Notion 원본 ↗</a>
+        </article>
+        <article class="source-card reveal">
+          <span>RENAMING / v0.5</span>
+          <h3>ERGOSQUARE: ARCHITECT</h3>
+          <p>에르고스피어·인벤토리 게이트·에르고스퀘어·설계자의 관계를 추가하고 작품명을 재정의했습니다.</p>
+          <a href="https://github.com/SongYeChan1024/Document_ERGOSQUARE-ARCHITECT" target="_blank" rel="noopener noreferrer">변경 기록 ↗</a>
+        </article>
+      </div>
+
+      <div class="status-note reveal">
+        <strong>STATUS NOTICE</strong>
+        <p>현재 문서는 프리프로덕션 기획안입니다. 표기된 수치와 기술 구성은 프로토타입 검증 과정에서 변경될 수 있으며, 구현 완료를 의미하지 않습니다.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <span>ERGOSQUARE: ARCHITECT</span>
+        <p>Game Design &amp; Documentation by Song Yechan</p>
+      </div>
+      <a href="#top">BACK TO TOP ↑</a>
+    </footer>
+  </main>
+
+  <div class="tooltip" role="status" aria-live="polite"></div>
+  <script src="./js/main.js"></script>
+</body>
+</html>
