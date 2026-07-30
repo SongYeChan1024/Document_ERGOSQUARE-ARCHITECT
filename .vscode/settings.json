@@ -1,0 +1,7 @@
+{
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "editor.wordWrap": "on",
+  "markdown.preview.breaks": true,
+  "markdown.validate.enabled": true
+}

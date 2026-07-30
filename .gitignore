@@ -1,0 +1,27 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+
+# Local temp / cache
+.codex-temp/
+.antigravity/
+*.tmp
+*.bak
+~$*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Node
+node_modules/
+
+# Generated local preview
+.http-server.log
+
+# Large raw captures are reviewed before tracking
+captures/
+recordings/
