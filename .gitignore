@@ -21,6 +21,8 @@ node_modules/
 
 # Generated local preview
 .http-server.log
+docs/.generated/
+site/
 
 # Large raw captures are reviewed before tracking
 captures/

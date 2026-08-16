@@ -1,0 +1,52 @@
+:root {
+  --md-primary-fg-color: #16242d;
+  --md-accent-fg-color: #16b8c8;
+}
+
+.md-header,
+.md-tabs {
+  background: linear-gradient(120deg, #0b151b, #18313a);
+}
+
+.md-typeset h1 {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.md-typeset h2 {
+  border-bottom: 1px solid color-mix(in srgb, var(--md-default-fg-color) 16%, transparent);
+  padding-bottom: 0.35rem;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: color-mix(in srgb, var(--md-accent-fg-color) 12%, transparent);
+  white-space: nowrap;
+}
+
+.md-typeset .grid.cards > ul > li {
+  border-color: color-mix(in srgb, var(--md-accent-fg-color) 28%, transparent);
+}
+
+.md-typeset .mermaid {
+  background: color-mix(in srgb, var(--md-default-bg-color) 92%, var(--md-accent-fg-color));
+  border: 1px solid color-mix(in srgb, var(--md-accent-fg-color) 22%, transparent);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.status-fixed,
+.status-draft,
+.status-idea,
+.status-active {
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.5rem;
+}
+
+.status-fixed { background: #1b7f5c; color: #fff; }
+.status-draft { background: #986b12; color: #fff; }
+.status-idea { background: #656b76; color: #fff; }
+.status-active { background: #176ca0; color: #fff; }
