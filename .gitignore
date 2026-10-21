@@ -27,3 +27,9 @@ site/
 # Large raw captures are reviewed before tracking
 captures/
 recordings/
+
+# Local verification work and accidental nested checkout
+/tmp/
+/Document_ERGOSQUARE-ARCHITECT/
+*.inspect.ndjson
+**/outputs/**/previews/
