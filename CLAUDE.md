@@ -10,7 +10,7 @@
 | 항목 | 값 |
 | --- | --- |
 | 이 저장소 작업 브랜치 | `codex/reorganize-game-design-docs` |
-| 게임 저장소 | https://github.com/SongYeChan1024/ERGOSQUARE-ARCHITECT (`codex/tutorial-foundation`) |
+| 게임 저장소 | https://github.com/SongYeChan1024/ERGOSQUARE-ARCHITECT (기준 `main`, 작업은 `main`에서 나눈 브랜치) |
 | 게임 저장소 로컬 위치 | 이 폴더 옆 `../ERGOSQUARE-ARCHITECT` |
 
 여러 PC에서 번갈아 작업합니다. 시작할 때 `git pull --ff-only`, PC를 바꾸기 전에 커밋하고 push합니다. `pull`이 로컬 변경 때문에 멈추면 덮어쓰지 말고 사용자에게 알립니다.

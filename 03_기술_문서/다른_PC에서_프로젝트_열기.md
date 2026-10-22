@@ -4,12 +4,12 @@
 
 작성자: 송예찬 · 작성일: 2026-10-21
 
-Unity 프로젝트의 [프로젝트 열기와 동기화 안내](https://github.com/SongYeChan1024/ERGOSQUARE-ARCHITECT/blob/codex/tutorial-foundation/GETTING_STARTED.md)에 최초 설치·복제 명령·씬 실행·작업 종료 후 푸시 절차를 모았습니다. 실제 명령과 입력표는 그 안내를 기준으로 합니다.
+Unity 프로젝트의 [프로젝트 열기와 동기화 안내](https://github.com/SongYeChan1024/ERGOSQUARE-ARCHITECT/blob/main/GETTING_STARTED.md)에 최초 설치·복제 명령·씬 실행·작업 종료 후 푸시 절차를 모았습니다. 실제 명령과 입력표는 그 안내를 기준으로 합니다.
 
 | 항목 | 기준 |
 | --- | --- |
-| Unity | `6000.3.7f1` |
-| 게임 저장소 | `SongYeChan1024/ERGOSQUARE-ARCHITECT`, 브랜치 `codex/tutorial-foundation` |
+| Unity | `6000.4.0f1` |
+| 게임 저장소 | `SongYeChan1024/ERGOSQUARE-ARCHITECT`, 기준 브랜치 `main` (작업은 `main`에서 나눈 브랜치) |
 | 문서 저장소 | `SongYeChan1024/Document_ERGOSQUARE-ARCHITECT`, 브랜치 `codex/reorganize-game-design-docs` |
 | 공통 패키지 | 게임의 `Packages/com.kasil.game-foundation`에 포함. 별도 저장소·형제 폴더 불필요 |
 | 3인칭 연습장 | `Assets/_ERGOSQUARE/01.Scenes/Comparison/ThirdPerson_Comparison.unity` |
